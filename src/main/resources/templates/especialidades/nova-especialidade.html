@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de especialiades</title>
+</head>
+<body>
+    <form action="#" th:action="@{/especialidades/salvarEspecialidade}" th:object="${especialidade}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <label>
+            Informe o nome do especialidade:
+        </label>
+        <input type="text" th:field="*{nome}" placeholder="Nome">
+        <br>
+        <br>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>

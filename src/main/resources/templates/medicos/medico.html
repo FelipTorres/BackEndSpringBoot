@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Médico</title>
+</head>
+<body>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Nome</td>
+                <td>CRM</td>
+                <td>Especialidade</td>
+                <td>Ações</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="medico : ${medicos}">
+                <td><span th:text="${medico.id}"></span></td>
+                <td><span th:text="${medico.nome}"></span></td>
+                <td><span th:text="${medico.crm}"></span></td>
+                <td><span th:text="${medico.especialidade.nome}"></span></td>
+                <td><a th:href="@{medicos/editar/{id} (id=${medico.id})}">Editar</a></td>
+                <td><a th:href="@{medicos/excluir/{id} (id=${medico.id})}">Excluir</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

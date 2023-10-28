@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pacientes</title>
+</head>
+<body>
+    <table>
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td >Nome</td>
+            <td >CPF</td>
+            <td >Consultas</td>
+            <td >Ações</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="paciente : ${pacientes}">
+            <td><span th:text="${paciente.id}"></span></td>
+            <td><span th:text="${paciente.nome}"></span></td>
+            <td><span th:text="${paciente.cpf}"></span></td>
+            <td><span th:text="${paciente.consulta}"></span></td>
+            <td><a th:href="@{/pacientes/editar/{id} (id=${paciente.id})}">Editar</a></td>
+            <td><a th:href="@{pacientes/excluir/{id} (id=${paciente.id})}">Excluir</a></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

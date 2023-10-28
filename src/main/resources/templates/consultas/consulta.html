@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Consultas</title>
+</head>
+<body>
+    <table>
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>Convenio</td>
+            <td>Data da Consulta</td>
+            <td>Medico da Consulta</td>
+            <td>Paciente da Consulta</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="consulta : ${consultas}">
+            <td><span th:text="${consulta.id}"></span></td>
+            <td><span th:text="${consulta.convenio}"></span></td>
+            <td><span th:text="${consulta.data}"></span></td>
+            <td><span th:text="${consulta.medico.nome}"></span></td>
+            <td><span th:text="${consulta.paciente.nome}"></span></td>
+            <td><a th:href="@{/consultas/editar/{id} (id=${consulta.id})}">Editar</a></td>
+            <td><a th:href="@{consultas/excluir/{id} (id=${consulta.id})}">Excluir</a></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

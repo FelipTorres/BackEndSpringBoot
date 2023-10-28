@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Especialidades</title>
+</head>
+<body>
+    <table>
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>Nome</td>
+            <td>Ações</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="especialidade : ${especialidades}">
+            <td><span th:text="${especialidade.id}"></span></td>
+            <td><span th:text="${especialidade.nome}"></span></td>
+            <td><a th:href="@{/especialidades/editar/{id} (id=${especialidade.id})}">Editar</a></td>
+            <td><a th:href="@{especialidades/excluir/{id} (id=${especialidade.id})}">Excluir</a></td>
+            <!-- Funcionalidade de excluir faz quebrar em casos de ter médicos cadastrados com aquela especialidade -->
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

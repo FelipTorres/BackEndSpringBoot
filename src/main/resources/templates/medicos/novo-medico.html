@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de médicos</title>
+</head>
+<body>
+    <form action="#" th:action="@{/medicos/salvarMedico}" th:object="${medico}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <label>
+            Informe o nome do medico:
+        </label>
+        <input type="text" th:field="*{nome}" placeholder="Nome">
+        <br>
+        <br>
+        <label>
+            Informe o CRM do médico:
+        </label>
+        <input type="text" th:field="*{crm}" placeholder="CRM">
+        <br>
+        <br>
+        <label>
+            Informe a especialidade do médico:
+        </label>
+        <select th:field="*{especialidade}" style="width: 25%">
+            <option value="">Especialidade</option>
+            <option th:each="especialidade : ${especialidades}" th:value="${especialidade.id}" th:text="${especialidade.nome}">Especialidade</option>
+        </select>
+        <br>
+        <br>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>

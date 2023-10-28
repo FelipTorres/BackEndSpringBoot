@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agendar Consultas</title>
+</head>
+<body>
+    <form action="#" th:action="@{/consultas/salvarConsulta}" th:object="${consultas}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <label>
+            Nome do medico para consulta:
+        </label>
+        <select th:field="*{medico}" style="width: 25%">
+            <option value="">Nome do medico</option>
+            <option th:each="medico : ${medicos}" th:value="${medico.id}" th:text="${medico.nome}">Medico</option>
+        </select>
+        <br>
+        <br>
+        <label>
+            Nome do paciente para consulta:
+        </label>
+        <select th:field="*{paciente}" style="width: 25%">
+            <option value="">Nome do Paciente</option>
+            <option th:each="paciente : ${pacientes}" th:value="${paciente.id}" th:text="${paciente.nome}">Paciente</option>
+        </select>
+        <br>
+        <br>
+        <label>
+            Informe o convenio:
+        </label>
+        <input type="text" th:field="*{convenio}" placeholder="Convenio">
+        <br>
+        <br>
+        <label>
+            Informe a data da consulta:
+        </label>
+        <input type="date" th:field="*{data}">
+        <br>
+        <br>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>
